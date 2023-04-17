@@ -10,8 +10,8 @@ function Home() {
 
     
     return (
-        <div className='bio d-flex justify-content-center align-items-center'>
-            <div className='bio-text m-5 p-5'>
+        <div className='bio'>
+            <div className='bio-text mt-5'>
                 <TypeAnimation
                     sequence={[
                         'Aléctor Alexander\n Um Designer UX',
@@ -19,15 +19,15 @@ function Home() {
                         'Aléctor Alexander\nUm Desenvolvedor Front-End',
                         'Aléctor Alexander\nUm Desenvolvedor Back-End',
                         2000, 
-                        'Aléctor Alexander\nUm Desenvolvedor Fullstack (por enquanto) Jr',
+                        'Aléctor Alexander\nUm Desenvolvedor Fullstack (por enquanto) Jr  ',
                         'Aléctor Alexander\nUm Desenvolvedor Fullstack Jr.',
                         2500, 
                         () => setShowSecondAnimation(true)
                     ]}
                     className='type-animation'
                     wrapper="span"
-                    cursor={true}
-                    style={{whiteSpace: 'pre-line', fontSize: '28px', display: 'inline-block' }}
+                    cursor={false}
+                    style={{whiteSpace: 'pre-line', fontSize: '26px', display: 'inline-block' }}
                 />
                 {showSecondAnimation && <TypeAnimation
                     sequence={[
@@ -44,7 +44,7 @@ function Home() {
                 </p>}
             </div>
             <div className='photo-container'>
-                <Image fluid='true' id='my-picture' src={myPicture} alt='homem-gostoso' />
+                <Image fluid='true' id='my-picture' src={myPicture} alt='sexy-man' />
             </div>
 
         </div>

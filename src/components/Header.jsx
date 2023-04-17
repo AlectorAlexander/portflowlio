@@ -5,11 +5,11 @@ import { Nav, Navbar } from 'react-bootstrap';
 
 function Header() {
     return (
-        <Navbar className='header' bg="light" expand="lg">
-            <Navbar.Brand href="#home">Dev</Navbar.Brand>
+        <Navbar className='header mt-0' bg="light" expand="lg">
+            <Navbar.Brand className='mx-2' href="#home">Dev</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse className="justify-content-end">
-                <Nav className="ml-auto">
+            <Navbar.Collapse className="justify-content-end mx-5">
+                <Nav>
                     <Nav.Link href="#link">Sobre Mim</Nav.Link>
                     <Nav.Link href="#link">Projetos</Nav.Link>
                     <Nav.Link href="#link">Contato</Nav.Link>
