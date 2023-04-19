@@ -31,11 +31,14 @@ function Home() {
                 />
                 {showSecondAnimation && <TypeAnimation
                     sequence={[
-                        'Para iniciar um novo projeto com Vite.js e React, você pode seguir os seguintes passos:  Certifique-se de ter o Node.js instalado em seu computador. Você pode fazer o download e instalá-lo em https://nodejs.org/. Abra o terminal do seu sistema operacional e crie uma nova pasta para o seu projeto. Navegue até esta pasta usando o comando cd.Execute o seguinte comando para criar um novo projeto React com Vite.js:',
+                        'Um absurdo, um ato ilógico, blasfêmico; um despautérico despropósito; um disparate e uma aberração; uma desrazão irracional; um ilogismo; um delírio; um dislate contrassenso; um desatino alógico; uma piloura; uma insânia; uma insensatez; um desvario; uma esquisitisse; uma frenesi de porra-louquice.          ',
+                        'Gosto muito de me desafiar, aprender, colocar em prática idéias inovadoras e agregar valor por onde passo. Sei trabalhar em equipe, entendo de metodologias ágeis, feedbacks construtivos, auto-liderança e a importância de uma comunicação assetiva e clara. Pensando em longo prazo, meu objetivo é me especializar cada vez mais na área de tecnologia e me tornar um programador formidável aos olhos do mercado e, por conseguinte, aos meus próprios olhos.',
                         0,
                     ]}
                     wrapper="span"
                     speed={115}
+                    className='type-animation2'
+                    deletionSpeed={99}
                     cursor={true}
                     style={{whiteSpace: 'pre-line', fontSize: '1rem', display: 'inline-block' }}
                 />}
