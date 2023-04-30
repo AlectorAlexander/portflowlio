@@ -11,7 +11,7 @@ function Home() {
     
     return (
         <div className='bio'>
-            <div className='bio-text mt-5'>
+            <div className='bio-text'>
                 <TypeAnimation
                     sequence={[
                         'Aléctor Alexander\n Um Designer UX',
