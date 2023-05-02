@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import ProjectsBanner from './pages/ProjectsBanner';
 import Projects from './pages/Projects';
+import CssBaseline from '@mui/material/CssBaseline';
+import Contato from './pages/Contato';
 
 function App() {
     const [typeOfProjects, setTypeOfProjects] = useState('Todos');
@@ -26,6 +28,7 @@ function App() {
 
     return (
         <div className="App">
+            <CssBaseline />
             <Header />
             <Suspense fallback={<div>Loading...</div>}>
                 <Home />
@@ -35,6 +38,9 @@ function App() {
             </Suspense>
             <Suspense fallback={<div>Loading...</div>}>
                 <Projects typeOfProjects={typeOfProjects} />
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Contato />
             </Suspense>
         </div>
     );
