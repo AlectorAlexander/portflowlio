@@ -4,15 +4,14 @@ import Card from 'react-bootstrap/Card';
 import Iframe from 'react-iframe';
 import '../styles/Card.css';
 
-
-
 function CardComponent({ renderProjects }) {
-    const { gif, linkRepositorie, LinkProject, name, description } = renderProjects;
-    
-    
-    const rightRender = gif !== '' ? 
-        <Card.Img variant='top' 
-            alt={name} src={gif} /> : 
+    const { gif, linkRepositorie, linkProject, name, description, stacks } =
+    renderProjects;
+
+    const rightRender =
+    gif !== '' ? (
+        <Card.Img variant='top' alt={name} src={gif} />
+    ) : (
         <Iframe
             className='iframe'
             url={linkRepositorie}
@@ -21,24 +20,39 @@ function CardComponent({ renderProjects }) {
             width='100%'
             height='200px'
             position='relative'
-        />;
+        />
+    );
 
     return (
-        <Card style={{ margin: '2rem', width: '75%', height: '65vh', backgroundColor: 'black' }}>
-            <Card.Body className='bg-dark text-white'>
+        <Card
+            style={{
+                margin: '2rem',
+                width: '75%',
+                backgroundColor: 'transparent',
+                borderRadius: '49px',
+            }}
+            className='cardResponsive'
+        >
+            <Card.Body className='cloro text-white d-flex justify-content-between align-items-center flex-column'>
                 <Card.Title>{name}</Card.Title>
                 {rightRender}
 
-                <Card.Text>
-                    {description}
-                </Card.Text>
-                <Card.Link href={linkRepositorie} target='_blank'>
-                    Link do repositório
-                </Card.Link>
-                {LinkProject !== '' && (
-                    <Card.Link href={LinkProject} target='_blank'>
-                        Link do site
-                    </Card.Link>)}
+                <Card.Text className='text-center'>{description}</Card.Text>
+                <div className='mt-2 link-container d-flex justify-content-center flex-wrap flex-row'>
+                    <Card.Link href={linkRepositorie} target='_blank'>
+          Link do repositório
+                    </Card.Link>
+                    {linkProject !== '' && (
+                        <Card.Link href={linkProject} target='_blank'>
+            Link da aplicação
+                        </Card.Link>
+                    )}
+                </div>
+                <ul className='list-group d-flex justify-content-center flex-wrap flex-row'>
+                    {stacks.map((el) => (
+                        <li key={el}>{el}</li>
+                    ))}
+                </ul>
             </Card.Body>
         </Card>
     );
@@ -46,12 +60,13 @@ function CardComponent({ renderProjects }) {
 
 CardComponent.propTypes = {
     renderProjects: PropTypes.shape({
-        title: PropTypes.string,
         gif: PropTypes.string,
-        name: PropTypes.string,
-        description: PropTypes.string,
-        linkRepositorie: PropTypes.string,
-    }),
+        linkRepositorie: PropTypes.string.isRequired,
+        linkProject: PropTypes.string,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        stacks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
 };
 
 export default CardComponent;

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import React, { useEffect } from 'react';
 import '../styles/Projects.css';
 import { styles } from '../services/backgroundAnimations';
-import '../styles/Projects.css';
 import PropTypes from 'prop-types';
 import { backendProjects, frontEndProjects } from '../services/projects';
 import CardComponent from '../components/Card';
@@ -33,11 +32,15 @@ const Projects = ({typeOfProjects}) => {
     useEffect(() => {
         if (typeOfProjects === 'Todos') {
             setAllProjects();
+        } else if (typeOfProjects === 'FrontEnd') {
+            setRendrerProjects(frontEndProjects);
+        } else {
+            setRendrerProjects(backendProjects);
         }
     }, [typeOfProjects]); 
   
     return (
-        <div className="projects" style={styles[`${typeOfProjects}`]}>
+        <div className="projects d-flex  justify-content-center align-items-center" style={styles[`${typeOfProjects}`]}>
             <div>
                 <Slider className='carousel' {...settings}>
                     {renderProjects &&  renderProjects.map((project) => (

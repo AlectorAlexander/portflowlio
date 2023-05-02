@@ -3,3 +3,44 @@
     border: 2px solid #CCCCCC;
   }
   
+  .list-group {
+    list-style: none;
+  }
+
+  .list-group li {
+    margin: 3px;
+    background-color: rgba(25, 25, 79, 0.734);
+    border-radius: 20px;
+    padding: 5px 20px;
+  }
+
+  .cardResponsive {
+    min-height: 607px;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);;
+  }
+
+  .link-container a {
+    color: white;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+  }
+
+  .link-container a:hover {
+    color: rgb(183, 183, 255);
+    font-size: 17px;
+    font-family:sans-serif;
+    font-weight: 900;
+    text-decoration: underline;
+  }
+
+  .cloro {
+    background-image: linear-gradient(-45deg, #412117b4, #56185391, #3512478c, #0d3543a3, #082b23d5);
+    border-radius: 49px;
+  }
+  
+  
+  @media screen and (max-width: 834px) {
+    .cardResponsive {
+      overflow-y: auto;
+    }
+  }

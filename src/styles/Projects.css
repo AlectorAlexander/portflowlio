@@ -8,6 +8,12 @@
     background: cover;
 }
 
+.projects {
+    max-width: 100vw;
+    min-height: 120vh;
+    overflow-y: auto;
+}
+
     @keyframes gradient {
         0% {
           background-position: 0% 50%;
