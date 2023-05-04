@@ -8,7 +8,7 @@ import CardComponent from '../components/Card';
 import Slider from 'react-slick';
 
 
-const Projects = ({typeOfProjects}) => {
+const Projects = React.forwardRef(({typeOfProjects, forwardedRef}) => {
     const [renderProjects, setRendrerProjects] = useState(null);
     const [width, setWidth] = useState(window.innerWidth);
 
@@ -40,21 +40,28 @@ const Projects = ({typeOfProjects}) => {
     }, [typeOfProjects]); 
   
     return (
-        <div className="projects d-flex  justify-content-center align-items-center" style={styles[`${typeOfProjects}`]}>
+        <div ref={forwardedRef} data-type='projects' className="projects d-flex justify-content-center align-items-center" style={styles[`${typeOfProjects}`]}>
             <div>
                 <Slider className='carousel' {...settings}>
-                    {renderProjects &&  renderProjects.map((project) => (
-                        <CardComponent key={project.id} renderProjects={project} /> 
+                    {renderProjects &&  renderProjects.map((project, i) => (
+                        <CardComponent key={i} renderProjects={project} /> 
                     ))}
                 </Slider>
             </div>
         </div>
     );
     
-};
+});
   
 Projects.propTypes = {
-    typeOfProjects: PropTypes.string.isRequired
+    typeOfProjects: PropTypes.string.isRequired,
+    forwardedRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    ]).isRequired
 };
+
+Projects.displayName = 'Projects';
+
 
 export default Projects;

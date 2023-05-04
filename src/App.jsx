@@ -1,48 +1,99 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Home from './pages/Home';
-import ProjectsBanner from './pages/ProjectsBanner';
-import Projects from './pages/Projects';
+import React, { Suspense, useEffect,  useState, useRef } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Contato from './pages/Contato';
+const Header = React.lazy(() => import('./components/Header'));
+const Home = React.lazy(() => import('./pages/Home'));
+const ProjectsBanner = React.lazy(() => import('./pages/ProjectsBanner'));
+const Projects = React.lazy(() => import('./pages/Projects'));
+const Contato =  React.lazy(() => import('./pages/Contato'));
+import './App.css';
 
 function App() {
     const [typeOfProjects, setTypeOfProjects] = useState('Todos');
+    const [Ref, setRef] = useState('');
+    const [myElementIsVisible, updateMyElementIsVisible] = useState();
+    const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
-        console.log(typeOfProjects);
-    }, [typeOfProjects]);
+        const handleScroll = () => {
+            const position = window.pageYOffset;
+            setScrollPosition(position);
+        };
 
-    const handleScroll = () => {
-        const scrollPosition = document.documentElement.scrollTop;
-        const halfScreenHeight = window.innerHeight / 4;
-        
-        if (scrollPosition > (halfScreenHeight * 3)) {
-            return;
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const projectBannerRef = useRef(null);
+    const projectsRef = useRef(null);
+    const contatoRef = useRef(null);
+
+
+
+    useEffect(() => {
+        console.log(Ref, myElementIsVisible);
+    }, [Ref]);
+
+    useEffect(() => {
+        console.log('chamou');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setRef(entry.target.dataset.type);
+                    updateMyElementIsVisible(entry.isIntersecting);
+                }
+            });
         }
-    };
-      
-    window.addEventListener('scroll', handleScroll);
-
+        );
+        if (projectBannerRef.current) {
+            observer.observe(projectBannerRef.current);
+        }
+        
+        if (projectsRef.current) {
+            observer.observe(projectsRef.current);
+        }
+        
+        if (contatoRef.current) {
+            observer.observe(contatoRef.current);
+        }
+        
+        return () => {
+            if (projectBannerRef.current) {
+                observer.unobserve(projectBannerRef.current);
+            }
+        
+            if (projectsRef.current) {
+                observer.unobserve(projectsRef.current);
+            }
+        
+            if (contatoRef.current) {
+                observer.unobserve(contatoRef.current);
+            }
+        };
+    }, [scrollPosition]);
 
     return (
         <div className="App">
-            
             <CssBaseline />
-            <Header />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Header />
+            </Suspense>
             <Suspense fallback={<div>Loading...</div>}>
                 <Home />
             </Suspense>
             <Suspense fallback={<div>Loading...</div>}>
-                <ProjectsBanner setTypeOfProjects={setTypeOfProjects} />
+                <ProjectsBanner forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
             </Suspense>
             <Suspense fallback={<div>Loading...</div>}>
-                <Projects typeOfProjects={typeOfProjects} />
+                <Projects forwardedRef={projectsRef} typeOfProjects={typeOfProjects} />
             </Suspense>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Contato />
-            </Suspense>
+            <section>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Contato forwardedRef={contatoRef} />
+                </Suspense>
+            </section>
         </div>
     );
 }

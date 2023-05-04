@@ -3,6 +3,8 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.264);
 }
 
 @media screen and (max-width: 600px) {

@@ -1,6 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { createUseStyles } from 'react-jss';
+import PropTypes from 'prop-types';
 
 
 const useStyles = createUseStyles(() => ({
@@ -36,7 +37,7 @@ const useStyles = createUseStyles(() => ({
     },
 }));
 
-function Contato() {
+const Contato = React.forwardRef(({forwardedRef}) => {
     const classes = useStyles();
 
     const [nome, setNome] = useState('');
@@ -49,7 +50,7 @@ function Contato() {
     };
 
     return (
-        <div className={classes.container}>
+        <div ref={forwardedRef} data-type="Contatos" className={classes.container}>
             <form className={classes.root && classes.form} onSubmit={handleSubmit}>
                 <TextField
                     required
@@ -82,13 +83,19 @@ function Contato() {
                     color="primary"
                     type="submit"
                     className={classes.button}
-                    endIcon
                 >
         Enviar
                 </Button>
             </form>
         </div>
     );
-}
+});
+Contato.propTypes = {
+    forwardedRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    ]).isRequired
+};
+Contato.displayName = 'Contato';
 
 export default Contato;

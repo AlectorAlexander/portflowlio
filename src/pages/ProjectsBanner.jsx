@@ -4,9 +4,10 @@ import myBackground from '../images/DALL·E-background.png';
 import '../styles/Projects.css';
 import { NavLink } from 'react-bootstrap';
 
-const ProjectsBanner = ({ setTypeOfProjects }) => {
+const ProjectsBanner = React.forwardRef(({ setTypeOfProjects , forwardedRef}) => {
     return (
         <div
+            ref={forwardedRef} data-type='ProjectBanner'
             className="project"
             placeholder='blur'
             style={{
@@ -22,10 +23,16 @@ const ProjectsBanner = ({ setTypeOfProjects }) => {
             </div>
         </div>
     );
-};
+});
 
 ProjectsBanner.propTypes = {
-    setTypeOfProjects: PropTypes.func.isRequired
+    setTypeOfProjects: PropTypes.func.isRequired,
+    forwardedRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    ]).isRequired
 };
+
+ProjectsBanner.displayName = 'ProjectsBanner';
 
 export default ProjectsBanner;
