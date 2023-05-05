@@ -12,6 +12,7 @@ function App() {
     const [Ref, setRef] = useState('');
     const [myElementIsVisible, updateMyElementIsVisible] = useState();
     const [scrollPosition, setScrollPosition] = useState(0);
+    const scrollToComponent = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,6 +27,12 @@ function App() {
         };
     }, []);
 
+    useEffect(() => {
+        if (scrollToComponent.current) {
+            scrollToComponent.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [typeOfProjects, scrollToComponent.current]);
+
     const projectBannerRef = useRef(null);
     const projectsRef = useRef(null);
     const contatoRef = useRef(null);
@@ -33,11 +40,9 @@ function App() {
 
 
     useEffect(() => {
-        console.log(Ref, myElementIsVisible);
     }, [Ref]);
 
     useEffect(() => {
-        console.log('chamou');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -84,14 +89,16 @@ function App() {
                 <Home />
             </Suspense>
             <Suspense fallback={<div>Loading...</div>}>
-                <ProjectsBanner forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
+                <ProjectsBanner componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
             </Suspense>
             <Suspense fallback={<div>Loading...</div>}>
-                <Projects forwardedRef={projectsRef} typeOfProjects={typeOfProjects} />
+                <section ref={scrollToComponent}>
+                    <Projects componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectsRef} typeOfProjects={typeOfProjects} />
+                </section>
             </Suspense>
             <section>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <Contato forwardedRef={contatoRef} />
+                    <Contato componentRef={Ref} visible={myElementIsVisible} forwardedRef={contatoRef} />
                 </Suspense>
             </section>
         </div>

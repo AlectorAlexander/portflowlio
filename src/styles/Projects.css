@@ -6,14 +6,18 @@
     height: 120vh;
     max-width: 100vw;
     background: cover;
-  font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
+    transition: clip-path 1.5s ease-in-out;
+}
 
+.project-title {
+  transition: opacity 4.0s ease-in-out;
 }
 
 .projects {
     max-width: 100vw;
     min-height: 120vh;
-    overflow-y: auto;
+    animation: gradient 15s ease infinite,
 }
 
     @keyframes gradient {
@@ -38,6 +42,7 @@
     font-size: 40px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-decoration:underline;
+    transition: opacity 4.0s ease-in-out;
 }
 
 .nav-link {

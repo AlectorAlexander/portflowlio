@@ -34,11 +34,10 @@ function CardComponent({ renderProjects }) {
             className='cardResponsive'
         >
             <Card.Body className='cloro text-white d-flex justify-content-between align-items-center flex-column'>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title className='animate__backInDown'>{name}</Card.Title>
                 {rightRender}
-
                 <Card.Text className='text-center'>{description}</Card.Text>
-                <div className='mt-2 link-container d-flex justify-content-center flex-wrap flex-row'>
+                <div className='mt-1 link-container d-flex justify-content-center flex-wrap flex-row'>
                     <Card.Link href={linkRepositorie} target='_blank'>
           Link do repositório
                     </Card.Link>

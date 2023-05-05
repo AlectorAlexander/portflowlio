@@ -8,15 +8,15 @@
   }
 
   .list-group li {
-    margin: 3px;
+    margin: 1px;
     background-color: rgba(25, 25, 79, 0.734);
     border-radius: 20px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    padding: 5px 20px;
+    padding: 5px 10px;
   }
 
   .cardResponsive {
-    min-height: 607px;
+    min-height: 550px;
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);;
   }
 

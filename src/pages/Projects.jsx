@@ -8,9 +8,15 @@ import CardComponent from '../components/Card';
 import Slider from 'react-slick';
 
 
-const Projects = React.forwardRef(({typeOfProjects, forwardedRef}) => {
+const Projects = React.forwardRef(({typeOfProjects, forwardedRef, componentRef, visible}) => {
     const [renderProjects, setRendrerProjects] = useState(null);
     const [width, setWidth] = useState(window.innerWidth);
+
+    const animationControl = componentRef === 'Projects' && visible;
+    const classN = animationControl ? 'animate__animated animate__backInDown' : 'animate__animated animate__bounceOut';
+
+
+
 
     window.addEventListener('resize', () => {
         setWidth(window.innerWidth);
@@ -40,9 +46,9 @@ const Projects = React.forwardRef(({typeOfProjects, forwardedRef}) => {
     }, [typeOfProjects]); 
   
     return (
-        <div ref={forwardedRef} data-type='projects' className="projects d-flex justify-content-center align-items-center" style={styles[`${typeOfProjects}`]}>
+        <div ref={forwardedRef} data-type='Projects' className="projects d-flex justify-content-center align-items-center" style={styles[`${typeOfProjects}`]}>
             <div>
-                <Slider className='carousel' {...settings}>
+                <Slider className={`carousel ${classN}`} {...settings}>
                     {renderProjects &&  renderProjects.map((project, i) => (
                         <CardComponent key={i} renderProjects={project} /> 
                     ))}
@@ -54,6 +60,8 @@ const Projects = React.forwardRef(({typeOfProjects, forwardedRef}) => {
 });
   
 Projects.propTypes = {
+    componentRef: PropTypes.string.isRequired,
+    visible: PropTypes.bool.isRequired,
     typeOfProjects: PropTypes.string.isRequired,
     forwardedRef: PropTypes.oneOfType([
         PropTypes.func,

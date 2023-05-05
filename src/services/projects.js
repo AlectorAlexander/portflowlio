@@ -27,7 +27,7 @@ export const frontEndProjects = [
         name: 'Discopédia',
         description: 'Projeto FullStack onde o objetivo foi criar uma enciclopédia de discos e deixar o usuário colecionar culturar brasileira.',
         stacks: ['react', 'redux', 'css', 'bootstrap', 'context-api', 'axios-react'],
-        linkProject: 'https://github.com/AlectorAlexander/discopediaFront',
+        linkProject: 'https://discopedia.onrender.com/',
         linkRepositorie: 'https://github.com/AlectorAlexander/discopediaFront',
         gif: 'https://github.com/AlectorAlexander/discopediaFront/blob/master/discopedia.gif?raw=true'
     },
