@@ -14,10 +14,6 @@ const ProjectsBanner = React.forwardRef(({ setTypeOfProjects , forwardedRef, com
             setAnimation(true);
         }
     }, [animationControl]);
-    /* 
-    useEffect(() => {
-        console.log(componentRef, visible);
-    }, [componentRef, visible]); */
 
     return (
         <div

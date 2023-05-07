@@ -2,13 +2,20 @@ import React, { useEffect, useState } from 'react';
 import myPicture from '../images/linkedinPerfil.jpg';
 import 'react';
 import '../styles/Home.css';
+import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { TypeAnimation } from 'react-type-animation';
 
-function Home() {
+const Home = React.forwardRef(({setHeaderShow, forwardedRef}) => {
     const [showSecondAnimation, setShowSecondAnimation] = useState(false);
     const [showThirdAnimation, setShowThirdAnimation] = useState(false);
     const [seconds, setSeconds] = useState(false);
+
+    useEffect(() => {
+        if (showSecondAnimation) {
+            setHeaderShow(true);
+        }
+    }, [showSecondAnimation]);
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -22,11 +29,12 @@ function Home() {
     
     return (
         <div 
+            ref={forwardedRef} data-type='home'
             className={'bio'} 
             id={'bio'} 
         >
 
-            <div className='bio-text'>
+            <div className='bio-text mt-5'>
                 {seconds && <TypeAnimation
                     sequence={[
                         'Aléctor Alexander',
@@ -88,6 +96,18 @@ function Home() {
         </div>
 
     );
-}
+});
+
+Home.displayName = 'ProjectsBanner';
+
+
+Home.propTypes = {
+    setHeaderShow: PropTypes.func.isRequired,
+    forwardedRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+    ]).isRequired
+};
+
 
 export default Home;

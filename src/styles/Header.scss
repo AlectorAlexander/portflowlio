@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Kanit:900');
+
+$LIGHTING_FLOOR: 1;
+$LIGHTING_CEIL: 2;
+$LIGHTING_FLAT: 3;
+
+@mixin text3d(
+  $primary, 
+  $depth: 5, 
+  $shadowsteps: 5, 
+  $shadowincrementer: 3px, 
+  $shadowopacity: .5, 
+  $primaryshadowcolour: #000, 
+  $lighting: $LIGHTING_CEIL) {
+  $predefinedShadows: (
+    0 0 5px rgba($primaryshadowcolour, .05), 
+    0 -1px 3px rgba($primaryshadowcolour, .2), 
+    0 3px 5px rgba($primaryshadowcolour, .2));
+  $value: ();
+  @for $i from 1 through $depth {
+    $num: $i + px;
+    $hueadjust: $i;
+    @if($lighting == $LIGHTING_FLOOR) {
+      $hueadjust: ($i * 2 - $depth - 5) * 1%;
+    } @elseif($lighting == $LIGHTING_CEIL) {
+      $hueadjust: -($i*2 + $depth - 10) * 1%;
+    } @elseif($lighting == $LIGHTING_FLAT) {
+      $hueadjust: -$depth * 1%;
+    }
+    $colour: adjust-color($primary, $lightness: $hueadjust);
+    $theShadow: 0 $num 0 $colour;
+    $value: append($value, $theShadow, comma);
+  }
+  
+  @for $i from 1 through $shadowsteps {
+    @if($i >= length($predefinedShadows)) {
+      $dist: $i * $shadowincrementer;
+      $value: append($value, 0 $dist $dist rgba($primaryshadowcolour, $shadowopacity));
+    } @else {
+      $value: append($value, nth($predefinedShadows, $i));
+    }
+  }
+  
+  text-shadow: $value;
+}
+
+$primarycolour: rgb(192, 230, 190);
+
+
+
+$bg-color: #1f1e2d;
+$text-color1: #184815;
+$text-color2: #031705;
+
+.header {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    position: fixed;
+  }
+
+
+.home {
+    transition: 0.2s;
+    background: #313436aa;
+}
+
+.home a {
+    transition: 0.2s;
+    font-family: 'Baloo Tamma', cursive;
+  color:  #ffffff;
+}
+
+.home a:hover {
+  font-weight: 900;
+}
+
+.home span {
+    transition: 0.2s;
+    text-align: center;
+  width: 100%;
+  margin: 0px auto;
+  font-size: 18px;
+  letter-spacing: 5px;
+  transition: 0.2s;
+  font-size: 18px;
+  text-shadow: -1px -1px 0px var(--background),
+    3px 3px 0px var(--background),
+    6px 6px 0px #00000055;
+}
+
+
+
+.ProjectBanner {
+    transition: 0.2s;
+    background: linear-gradient(-45deg, #402612, #5536128f, #71711669, #5b3d268a, #ec760767);
+}
+
+.ProjectBanner a {
+    transition: 0.2s;
+    color: white;
+    text-shadow: 0 1px 0px #14313f, 1px 0 0px #193039, 1px 2px 1px #1b3948, 2px 1px 1px #1c3946, 2px 3px 2px #18394a, 3px 2px 2px #163542, 3px 4px 2px #1c2f39, 4px 3px 3px #163442, 4px 5px 3px #14313f, 5px 4px 2px #162d37, 5px 6px 2px #132b37, 6px 5px 2px #1d333d, 6px 7px 1px #15313f, 7px 6px 1px #122d39, 7px 8px 0px #1a3645, 8px 7px 0px #1e353f, 2px 2px 2px rgba(0,0,0,0);
+}
+
+.ProjectBanner span {
+  transition: 0.2s;
+}
+
+.ProjectBanner a:hover {
+    color: #ecd507
+}
+
+.Projects {
+    transition: 0.2s;
+    background: #1f080884;
+  }
+  
+  .Projects a {
+    transition: 0.2s;
+    font-family: 'Pacifico', cursive;
+    transform: rotate(-7deg);
+    font-size: 21px;
+    font-weight:  900;
+    color: #fdfafa;
+    text-shadow: #f9f4f4 0px 0px 5px, #141313 0px 0px 10px, #FFF 0px 0px 15px, #2d5eff 0px 0px 20px, #2d5eff 0px 0px 30px, #2d5eff 0px 0px 40px, #2d5eff 0px 0px 50px, #2d5eff 0px 0px 75px;
+  }
+
+  .Projects span {
+    transition: 0.2s;
+  }
+  
+  .Projects a:hover {
+    color: #FFFFFF;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+  }
+
+  .Contatos {
+    transition: 0.2s;
+    background: $primarycolour;
+  }
+  
+  .Contatos a {
+    transition: 0.2s;
+    color: #FFF;
+    font-family: "Kanit";
+    line-height:1em;
+    width: 100%;
+  
+  @include text3d(
+    adjust-color($primarycolour, $lightness: -8%), 
+    $depth: 8, 
+    $primaryshadowcolour: adjust-color($primarycolour, $lightness: -10%, $saturation: +20%),
+    $shadowopacity: .3);
+  }
+
+  .Contatos span {
+    transition: 0.2s;
+  }
+  
+  .Contatos a:hover {
+    color: whitesmoke;
+    @include text3d(
+      adjust-color($primarycolour, $lightness: -12%), 
+      $depth: 10, 
+      $primaryshadowcolour: adjust-color($primarycolour, $lightness: -12%, $saturation: +50%),
+      $shadowopacity: .7);
+  }
+
+@media screen and (max-width: 600px) {
+    .header {
+        position:fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 94vw;
+    }
+}
