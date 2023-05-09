@@ -70,7 +70,7 @@ const Home = React.forwardRef(({setHeaderShow, forwardedRef}) => {
                 {showThirdAnimation && <TypeAnimation
                     sequence={[
                         'Uma meta absurda, um resultado ilógico, seria um sonhador em seu despautérico despropósito? Galopando em disparates de uma aberração; como aquela razão que respira o irracional; aquela alusão ao ilogismo, talvez fosse um delírio, ou um dislate contrassenso, ou até mesmo um desatino alógico; uma piloura; uma insânia; uma insensatez; um desvario; uma esquisitisse? Definitivamente, uma frenesi de porra-louquice.          ',
-                        'Gosto muito de me desafiar, aprender, colocar em prática idéias inovadoras e agregar valor por onde passo. Sei trabalhar em equipe, entendo de metodologias ágeis, feedbacks construtivos, auto-liderança e a importância de uma comunicação assetiva e clara. Pensando em longo prazo, meu objetivo é me especializar cada vez mais na área de tecnologia e me tornar um programador formidável aos olhos do mercado e, por conseguinte, aos meus próprios olhos.',
+                        'Gosto muito de me desafiar, aprender, colocar em prática idéias inovadoras e agregar valor por onde passo. Sei trabalhar em equipe, entendo de metodologias ágeis, feedbacks construtivos, auto-liderança e a importância de uma comunicação assertiva e clara. Pensando em longo prazo, meu objetivo é me especializar cada vez mais na área de tecnologia e me tornar um programador formidável aos olhos do mercado e, por conseguinte, aos meus próprios olhos.',
                         0,
                     ]}
                     wrapper="span"

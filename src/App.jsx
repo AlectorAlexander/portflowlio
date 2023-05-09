@@ -6,6 +6,7 @@ const ProjectsBanner = React.lazy(() => import('./pages/ProjectsBanner'));
 const Projects = React.lazy(() => import('./pages/Projects'));
 const Contato =  React.lazy(() => import('./pages/Contato'));
 import './App.css';
+import Footer from './components/Footer';
 
 function App() {
     const [typeOfProjects, setTypeOfProjects] = useState('Todos');
@@ -95,17 +96,20 @@ function App() {
                 <Home forwardedRef={HomeRef} setHeaderShow={setHeaderShow} />
             </Suspense>
             { headerShow && 
-            (<><Suspense fallback={<div>Loading...</div>}>
-                <ProjectsBanner componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
-            </Suspense><Suspense fallback={<div>Loading...</div>}>
-                <section ref={scrollToComponent}>
-                    <Projects componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectsRef} typeOfProjects={typeOfProjects} />
-                </section>
-            </Suspense><section>
+            (<div>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <Contato componentRef={Ref} visible={myElementIsVisible} forwardedRef={contatoRef} />
-                </Suspense>
-            </section></>)}
+                    <ProjectsBanner componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
+                </Suspense><Suspense fallback={<div>Loading...</div>}>
+                    <section ref={scrollToComponent}>
+                        <Projects componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectsRef} typeOfProjects={typeOfProjects} />
+                    </section>
+                </Suspense><section>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Contato componentRef={Ref} visible={myElementIsVisible} forwardedRef={contatoRef} />
+                    </Suspense>
+                    <Footer />
+
+                </section></div>)}
         </div>
     );
 }

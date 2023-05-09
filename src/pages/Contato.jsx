@@ -1,47 +1,15 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { createUseStyles } from 'react-jss';
 import PropTypes from 'prop-types';
+import '../styles/Contato.scss';
 
 
-const useStyles = createUseStyles(() => ({
-    root: {
-        '& > *': {
-            margin: '1rem',
-        },
-    },
-    container: {
-        minHeight: '100vh',
-        width: '100%',
-        marginTop: '1rem',
-    },
-    form: {
-        '& > *': {
-            margin: '1rem',
-        },
-        marginTop: '2rem',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        minWidth: '300px',
-        maxWidth: '600px',
-    },
-    button: {
-        marginTop: '1rem',
-        marginBottom: '1rem',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        display: 'block',
-        maxWidth: '90px',
-    },
-}));
 
 const Contato = React.forwardRef(({forwardedRef}) => {
-    const classes = useStyles();
 
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
+    const [assunto, setAssunto] = useState('');
     const [mensagem, setMensagem] = useState('');
 
     const handleSubmit = (event) => {
@@ -50,27 +18,49 @@ const Contato = React.forwardRef(({forwardedRef}) => {
     };
 
     return (
-        <div ref={forwardedRef} data-type="Contatos" className={classes.container}>
-            <form className={classes.root && classes.form} onSubmit={handleSubmit}>
+        <div className='container' ref={forwardedRef} data-type="Contatos">
+            <form className='form' onSubmit={handleSubmit}>
+                <h1 className='text-center animate__animated animate__swing'>Contata-me</h1>
+                <div
+                    className='d-flex w-100'
+                >
+                    <TextField
+                        className='my-1 mx-1 w-100'
+                        required
+                        color="success"
+                        id="nome"
+                        label="Nome"
+                        variant="outlined"
+                        value={nome}
+                        onChange={(event) => setNome(event.target.value)}
+                    />
+                    <TextField
+                        className='my-1 mx-1 w-100'
+                        required
+                        color="success"
+                        id="email"
+                        label="Email"
+                        variant="outlined"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                    />
+                </div>
                 <TextField
+                    className='my-1 w-100'  
                     required
-                    id="nome"
-                    label="Nome"
+                    color="success"
+                    id="assunto"
+                    label="Assunto"
                     variant="outlined"
-                    value={nome}
-                    onChange={(event) => setNome(event.target.value)}
+                    value={assunto}
+                    onChange={(event) => setAssunto(event.target.value)}
                 />
+                
                 <TextField
-                    required
-                    id="email"
-                    label="Email"
-                    variant="outlined"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-                <TextField
+                    className='my-1 w-100'
                     required
                     id="mensagem"
+                    color="success"
                     label="Mensagem"
                     multiline
                     rows={4}
@@ -79,16 +69,18 @@ const Contato = React.forwardRef(({forwardedRef}) => {
                     onChange={(event) => setMensagem(event.target.value)}
                 />
                 <Button
-                    variant="contained"
-                    color="primary"
+                    variant="outlined"
+                    color="success"
                     type="submit"
-                    className={classes.button}
+                    className='my-1 button'
                 >
         Enviar
                 </Button>
             </form>
         </div>
     );
+
+
 });
 Contato.propTypes = {
     forwardedRef: PropTypes.oneOfType([
