@@ -66,16 +66,22 @@ $text-color2: #031705;
 .home {
     transition: 0.2s;
     background: #313436aa;
-}
+} 
 
 .home a {
     transition: 0.2s;
     font-family: 'Baloo Tamma', cursive;
-  color:  #ffffff;
+    color:  #ffffff;
 }
 
 .home a:hover {
   font-weight: 900;
+}
+
+.navbar .nav-link.active, 
+.navbar .nav-link:active, 
+.navbar .nav-link:focus {
+  color: white;
 }
 
 .home span {

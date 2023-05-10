@@ -16,7 +16,7 @@ function Header({Ref, setComponent}) {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end mx-5">
                 <Nav>
-                    <Nav.Link onClick={() => setComponent('home')} href="#home"><span>Sobre</span> <span>Mim</span></Nav.Link>
+                    <Nav.Link className='navbar-light' onClick={() => setComponent('home')} href="#home"><span>Sobre</span> <span>Mim</span></Nav.Link>
                     <Nav.Link onClick={() => setComponent('ProjectBanner')} href="#projects"><span>Projetos</span></Nav.Link>
                     <Nav.Link onClick={() => setComponent('Contatos')} href="#contato"><span>Contato</span></Nav.Link>
                 </Nav>
