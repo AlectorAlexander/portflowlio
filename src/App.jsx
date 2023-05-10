@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 function App() {
     const [typeOfProjects, setTypeOfProjects] = useState('Todos');
     const [Ref, setRef] = useState('home');
-    const [Component, setComponent] = useState('home');
+    const [Component, setComponent] = useState('');
     const [myElementIsVisible, updateMyElementIsVisible] = useState();
     const [scrollPosition, setScrollPosition] = useState(0);
     const scrollToComponent = useRef(null);
