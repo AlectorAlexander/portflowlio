@@ -4,11 +4,15 @@ import myBackground from '../images/DALL·E-background.png';
 import '../styles/Projects.css';
 import { NavLink } from 'react-bootstrap';
 
-const ProjectsBanner = React.forwardRef(({ setTypeOfProjects , forwardedRef, componentRef, visible}) => {   
+const ProjectsBanner = React.forwardRef(({ setTypeOfProjects , forwardedRef, componentRef, handleScroll, visible}) => {   
 
     const animationControl = componentRef === 'ProjectBanner' && visible;
     const classN = animationControl ? 'animate__animated animate__fadeIn' : '';
 
+    const scroll = (typeOfProject) => {
+        setTypeOfProjects(typeOfProject);
+        handleScroll();
+    };
 
     return (
         <div
@@ -22,9 +26,9 @@ const ProjectsBanner = React.forwardRef(({ setTypeOfProjects , forwardedRef, com
             }}>
             <h2 className={`project-title ${classN}`}>Projetos</h2>
             <div  className='navbr'>
-                <NavLink onClick={({target}) => setTypeOfProjects(target.innerText)} className={`${classN} nav-link`}>FrontEnd</NavLink>
-                <NavLink onClick={({target}) => setTypeOfProjects(target.innerText)} className={`${classN} nav-link`}>BackEnd</NavLink>
-                <NavLink onClick={({target}) => setTypeOfProjects(target.innerText)} className={`${classN} nav-link`}>Todos</NavLink>
+                <NavLink onClick={({target}) => scroll(target.innerText)} className={`${classN} nav-link`}>FrontEnd</NavLink>
+                <NavLink onClick={({target}) => scroll(target.innerText)} className={`${classN} nav-link`}>BackEnd</NavLink>
+                <NavLink onClick={({target}) => scroll(target.innerText)} className={`${classN} nav-link`}>Todos</NavLink>
             </div>
         </div>
     );
@@ -32,6 +36,7 @@ const ProjectsBanner = React.forwardRef(({ setTypeOfProjects , forwardedRef, com
 
 ProjectsBanner.propTypes = {
     setTypeOfProjects: PropTypes.func.isRequired,
+    handleScroll: PropTypes.func.isRequired,
     componentRef: PropTypes.string.isRequired,
     visible: PropTypes.bool.isRequired,
     forwardedRef: PropTypes.oneOfType([

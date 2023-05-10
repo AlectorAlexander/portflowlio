@@ -30,11 +30,11 @@ function App() {
         };
     }, []);
 
-    useEffect(() => {
+    const handleScroll = () => {
         if (scrollToComponent.current) {
             scrollToComponent.current.scrollIntoView({ behavior: 'smooth' });
         }
-    }, [typeOfProjects, scrollToComponent.current]);
+    };
 
     const HomeRef = useRef(null);
     const projectBannerRef = useRef(null);
@@ -120,7 +120,7 @@ function App() {
             { headerShow && 
             (<div>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <ProjectsBanner id="projects" componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
+                    <ProjectsBanner handleScroll={handleScroll} id="projects" componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
                 </Suspense><Suspense fallback={<div>Loading...</div>}>
                     <section ref={scrollToComponent}>
                         <Projects componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectsRef} typeOfProjects={typeOfProjects} />

@@ -17,19 +17,19 @@ const Footer = () => {
                         </p>
                     </Col>
                     <Col xs={12} md={6}>
-                        <a href="https://github.com/usuario" className="text-light me-3">
+                        <a href="https://github.com/AlectorAlexander" target="_blank" className="text-light me-3" rel="noreferrer">
                             <AiFillGithub size={24} />
                         </a>
-                        <a href="https://linkedin.com/in/usuario" className="text-light me-3">
+                        <a href="https://www.linkedin.com/in/alector-alexander" target="_blank" className="text-light me-3" rel="noreferrer">
                             <AiFillLinkedin size={24} />
                         </a>
-                        <a href="mailto:usuario@dominio.com" className="text-light me-3">
+                        <a href="mailto:alector.alexandre@gmail.com" target="_blank" className="text-light me-3" rel="noreferrer">
                             <SiGmail size={24} />
                         </a>
-                        <a href="https://wa.me/numero" className="text-light me-3">
+                        <a href="https://wa.me/55319735522095" target="_blank" className="text-light me-3" rel="noreferrer">
                             <AiOutlineWhatsApp size={24} />
                         </a>
-                        <a href="https://wa.me/numero" className="text-light me-3">
+                        <a href="https://docs.google.com/document/d/1uSajQTmqiTXiQ7SKIEAu1Q6FfAEi0xYE9z_oC7OiWus/edit?usp=sharing" target="_blank" className="text-light me-3" rel="noreferrer">
                             <BsCardHeading size={24} />
                         </a>
                     </Col>
