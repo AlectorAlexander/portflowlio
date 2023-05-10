@@ -7,7 +7,7 @@ import { NavLink } from 'react-bootstrap';
 const ProjectsBanner = React.forwardRef(({ setTypeOfProjects , forwardedRef, componentRef, handleScroll, visible}) => {   
 
     const animationControl = componentRef === 'ProjectBanner' && visible;
-    const classN = animationControl ? 'animate__animated animate__fadeIn' : '';
+    const classN = animationControl ? 'animate__animated animate__fadeIn' : 'animate__animated animate__fadeOut';
 
     const scroll = (typeOfProject) => {
         setTypeOfProjects(typeOfProject);
