@@ -48,8 +48,8 @@ $text-color3: #12565bdf;
     max-width: 90px;
   }
 
-  .button:hover {
-    background-image: green;
+  form .button:hover {
+    background-color: green !important;;
     color: white
   }
   

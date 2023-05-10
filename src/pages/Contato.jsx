@@ -1,12 +1,10 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import emailjs from '@emailjs/browser';
 import '../styles/Contato.scss';
 
-
-
 const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
-
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [assunto, setAssunto] = useState('');
@@ -17,8 +15,37 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`Nome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`);
+
+        const serviceId = import.meta.env.VITE_SERVICE_ID;
+        const templateId = import.meta.env.VITE_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+        console.log(import.meta.env);
+
+        // Configuração do objeto de email
+        const emailData = {
+            to_name: 'Seu Nome',
+            from_name: nome,
+            message: mensagem,
+            reply_to: email,
+            subject: assunto
+        };
+
+        // Envia o email
+        emailjs.send(serviceId, templateId, emailData, publicKey)
+            .then((response) => {
+                console.log('Email enviado com sucesso!', response.status, response.text);
+            }, (error) => {
+                console.error('Erro ao enviar email:', error);
+            });
+
+        // Limpa o formulário
+        setNome('');
+        setEmail('');
+        setAssunto('');
+        setMensagem('');
     };
+    const emailValidation = email.includes('@') && email.includes('.');
+    const buttonValidation = nome !==  '' && emailValidation && assunto !== '' && mensagem !== '';
 
     return (
         <div className='container' ref={forwardedRef} data-type="Contatos">
@@ -72,6 +99,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
                     onChange={(event) => setMensagem(event.target.value)}
                 />
                 <Button
+                    disabled={!buttonValidation}
                     variant="outlined"
                     color="success"
                     type="submit"
