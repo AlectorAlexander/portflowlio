@@ -50,7 +50,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
     return (
         <div className='container' ref={forwardedRef} data-type="Contatos">
             <form className='form' onSubmit={handleSubmit}>
-                <h1 className={`text-center ${classN}`}>Contata-me</h1>
+                <h1 className={`text-center ${classN}`}>Contate-me</h1>
                 <div
                     className='d-flex w-100'
                 >
