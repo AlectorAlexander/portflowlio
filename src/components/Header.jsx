@@ -4,11 +4,11 @@ import '../styles/Header.scss';
 import { Nav, Navbar } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-function Header({Ref}) {
-
+function Header({Ref, setComponent}) {
     useEffect(() => {
         console.log(Ref);
     }, [Ref]);
+
 
     return (
         <Navbar className={`header mt-0 animate__animated  animate__jackInTheBox ${Ref}`} expand="lg">
@@ -16,9 +16,9 @@ function Header({Ref}) {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end mx-5">
                 <Nav>
-                    <Nav.Link href="#link"><span>Sobre</span> <span>Mim</span></Nav.Link>
-                    <Nav.Link href="#link"><span>Projetos</span></Nav.Link>
-                    <Nav.Link href="#link"><span>Contato</span></Nav.Link>
+                    <Nav.Link onClick={() => setComponent('home')} href="#home"><span>Sobre</span> <span>Mim</span></Nav.Link>
+                    <Nav.Link onClick={() => setComponent('ProjectBanner')} href="#projects"><span>Projetos</span></Nav.Link>
+                    <Nav.Link onClick={() => setComponent('Contatos')} href="#contato"><span>Contato</span></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
@@ -28,6 +28,7 @@ function Header({Ref}) {
 
 Header.propTypes = {
     Ref: PropTypes.string.isRequired,
+    setComponent: PropTypes.func.isRequired,
 };
 
 

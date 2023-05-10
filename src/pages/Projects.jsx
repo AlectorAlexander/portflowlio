@@ -15,9 +15,6 @@ const Projects = React.forwardRef(({typeOfProjects, forwardedRef, componentRef, 
     const animationControl = componentRef === 'Projects' && visible;
     const classN = animationControl ? 'animate__animated animate__backInDown' : 'animate__animated animate__bounceOut';
 
-
-
-
     window.addEventListener('resize', () => {
         setWidth(window.innerWidth);
     }

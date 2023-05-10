@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 function App() {
     const [typeOfProjects, setTypeOfProjects] = useState('Todos');
     const [Ref, setRef] = useState('home');
+    const [Component, setComponent] = useState('home');
     const [myElementIsVisible, updateMyElementIsVisible] = useState();
     const [scrollPosition, setScrollPosition] = useState(0);
     const scrollToComponent = useRef(null);
@@ -39,6 +40,27 @@ function App() {
     const projectBannerRef = useRef(null);
     const projectsRef = useRef(null);
     const contatoRef = useRef(null);
+
+    useEffect(() => {
+        if (headerShow){
+            switch (Component) {
+            case 'home':
+                HomeRef.current.scrollIntoView({ behavior: 'smooth' });
+                setComponent('');
+                break;
+            case 'ProjectBanner':
+                projectBannerRef.current.scrollIntoView({ behavior: 'smooth' });
+                setComponent('');
+                break;
+            case 'Contatos':
+                contatoRef.current.scrollIntoView({ behavior: 'smooth' });
+                setComponent('');
+                break;
+            default:
+                break;
+            }
+        }
+    }, [Component]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -91,23 +113,23 @@ function App() {
     return (
         <div className="App">
             <CssBaseline />
-            {headerShow && <Header Ref={Ref} />}
+            {headerShow && <Header setComponent={setComponent} Ref={Ref} />}
             <Suspense fallback={<div>Loading...</div>}>
-                <Home forwardedRef={HomeRef} setHeaderShow={setHeaderShow} />
+                <Home id="home" forwardedRef={HomeRef} setHeaderShow={setHeaderShow} />
             </Suspense>
             { headerShow && 
             (<div>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <ProjectsBanner componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
+                    <ProjectsBanner id="projects" componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectBannerRef} setTypeOfProjects={setTypeOfProjects} />
                 </Suspense><Suspense fallback={<div>Loading...</div>}>
                     <section ref={scrollToComponent}>
                         <Projects componentRef={Ref} visible={myElementIsVisible} forwardedRef={projectsRef} typeOfProjects={typeOfProjects} />
                     </section>
                 </Suspense><section>
                     <Suspense fallback={<div>Loading...</div>}>
-                        <Contato componentRef={Ref} visible={myElementIsVisible} forwardedRef={contatoRef} />
+                        <Contato  id="contato" componentRef={Ref} visible={myElementIsVisible} forwardedRef={contatoRef} />
                     </Suspense>
-                    <Footer />
+                    <Footer forwardedRef={contatoRef} />
 
                 </section></div>)}
         </div>

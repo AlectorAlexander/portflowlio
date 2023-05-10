@@ -5,12 +5,15 @@ import '../styles/Contato.scss';
 
 
 
-const Contato = React.forwardRef(({forwardedRef}) => {
+const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
 
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [assunto, setAssunto] = useState('');
     const [mensagem, setMensagem] = useState('');
+
+    const animationControl = componentRef === 'Contatos' && visible;
+    const classN = animationControl ? 'animate__animated animate__swing' : '';
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,7 +23,7 @@ const Contato = React.forwardRef(({forwardedRef}) => {
     return (
         <div className='container' ref={forwardedRef} data-type="Contatos">
             <form className='form' onSubmit={handleSubmit}>
-                <h1 className='text-center animate__animated animate__swing'>Contata-me</h1>
+                <h1 className={`text-center ${classN}`}>Contata-me</h1>
                 <div
                     className='d-flex w-100'
                 >
@@ -83,6 +86,8 @@ const Contato = React.forwardRef(({forwardedRef}) => {
 
 });
 Contato.propTypes = {
+    componentRef: PropTypes.string.isRequired,
+    visible: PropTypes.bool.isRequired,
     forwardedRef: PropTypes.oneOfType([
         PropTypes.func,
         PropTypes.shape({ current: PropTypes.instanceOf(Element) })

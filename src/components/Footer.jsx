@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai';
+import { BsCardHeading } from 'react-icons/bs';
 import { SiGmail } from 'react-icons/si';
 import '../styles/Footer.css';
 
@@ -27,6 +28,9 @@ const Footer = () => {
                         </a>
                         <a href="https://wa.me/numero" className="text-light me-3">
                             <AiOutlineWhatsApp size={24} />
+                        </a>
+                        <a href="https://wa.me/numero" className="text-light me-3">
+                            <BsCardHeading size={24} />
                         </a>
                     </Col>
                 </Row>
