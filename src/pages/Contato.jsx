@@ -19,9 +19,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
         const serviceId = import.meta.env.VITE_SERVICE_ID;
         const templateId = import.meta.env.VITE_TEMPLATE_ID;
         const publicKey = import.meta.env.VITE_PUBLIC_KEY;
-        console.log(import.meta.env);
 
-        // Configuração do objeto de email
         const emailData = {
             to_name: 'Seu Nome',
             from_name: nome,
@@ -30,7 +28,6 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
             subject: assunto
         };
 
-        // Envia o email
         emailjs.send(serviceId, templateId, emailData, publicKey)
             .then((response) => {
                 console.log('Email enviado com sucesso!', response.status, response.text);
@@ -38,7 +35,6 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
                 console.error('Erro ao enviar email:', error);
             });
 
-        // Limpa o formulário
         setNome('');
         setEmail('');
         setAssunto('');

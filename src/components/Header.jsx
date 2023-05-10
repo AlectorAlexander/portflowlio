@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'react';
 import '../styles/Header.scss';
 import { Nav, Navbar } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 function Header({Ref, setComponent}) {
-    useEffect(() => {
-        console.log(Ref);
-    }, [Ref]);
 
 
     return (
