@@ -1,5 +1,13 @@
 export const frontEndProjects = [
     {
+        name: 'Discopédia',
+        description: 'Projeto FullStack onde o objetivo foi criar uma enciclopédia de discos e deixar o usuário colecionar culturar brasileira.',
+        stacks: ['react', 'redux', 'css', 'bootstrap', 'context-api', 'axios-react'],
+        linkProject: 'https://discopedia.onrender.com/',
+        linkRepositorie: 'https://github.com/AlectorAlexander/discopediaFront',
+        gif: 'https://github.com/AlectorAlexander/discopediaFront/blob/master/discopedia.gif?raw=true'
+    },
+    {
         name: 'Trivia',
         description: 'Projeto Front-End, em equipe, em que o desafio foi fazer um game de perguntas e respostas, baseado no game Trivia.',
         stacks: ['react', 'redux', 'css', 'jsx', 'thunk', 'trivia-api'],
@@ -23,14 +31,7 @@ export const frontEndProjects = [
         linkRepositorie: 'https://github.com/AlectorAlexander/project-tryunfo',
         gif: 'https://github.com/AlectorAlexander/project-tryunfo/raw/main/Tryunfo.gif'
     },
-    {
-        name: 'Discopédia',
-        description: 'Projeto FullStack onde o objetivo foi criar uma enciclopédia de discos e deixar o usuário colecionar culturar brasileira.',
-        stacks: ['react', 'redux', 'css', 'bootstrap', 'context-api', 'axios-react'],
-        linkProject: 'https://discopedia.onrender.com/',
-        linkRepositorie: 'https://github.com/AlectorAlexander/discopediaFront',
-        gif: 'https://github.com/AlectorAlexander/discopediaFront/blob/master/discopedia.gif?raw=true'
-    },
+
 ];
 
 export const backendProjects = [
