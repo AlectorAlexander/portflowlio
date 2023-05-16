@@ -10,7 +10,7 @@ function CardComponent({ renderProjects }) {
 
     const rightRender =
     gif !== '' ? (
-        <Card.Img variant='top' alt={name} src={gif} />
+        <Card.Img className='gif' variant='top' alt={name} src={gif} />
     ) : (
         <Iframe
             className='iframe'
@@ -25,15 +25,9 @@ function CardComponent({ renderProjects }) {
 
     return (
         <Card
-            style={{
-                margin: '2rem',
-                width: '75%',
-                backgroundColor: 'transparent',
-                borderRadius: '49px',
-            }}
             className='cardResponsive'
         >
-            <Card.Body className='cloro text-white d-flex justify-content-between align-items-center flex-column'>
+            <Card.Body className='cloro text-white d-flex h-50 justify-content-between align-items-center flex-column'>
                 <Card.Title className='animate__backInDown'>{name}</Card.Title>
                 {rightRender}
                 <Card.Text className='text-center'>{description}</Card.Text>

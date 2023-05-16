@@ -10,21 +10,17 @@ import Slider from 'react-slick';
 
 const Projects = React.forwardRef(({typeOfProjects, forwardedRef, componentRef, visible}) => {
     const [renderProjects, setRendrerProjects] = useState(null);
-    const [width, setWidth] = useState(window.innerWidth);
 
     const animationControl = componentRef === 'Projects' && visible;
     const classN = animationControl ? 'animate__animated animate__backInDown' : 'animate__animated animate__bounceOut';
 
-    window.addEventListener('resize', () => {
-        setWidth(window.innerWidth);
-    }
-    );
+
 
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: width  > 834 ? 2 : 1,
+        slidesToShow: 1,
         slidesToScroll: 1,
     };
     
@@ -43,11 +39,11 @@ const Projects = React.forwardRef(({typeOfProjects, forwardedRef, componentRef, 
     }, [typeOfProjects]); 
   
     return (
-        <div ref={forwardedRef} data-type='Projects' className="projects d-flex justify-content-center align-items-center" style={styles[`${typeOfProjects}`]}>
-            <div>
+        <div  className="projects" style={styles[`${typeOfProjects}`]}>
+            <div ref={forwardedRef} data-type='Projects' className="Projects-container">
                 <Slider className={`carousel ${classN}`} {...settings}>
                     {renderProjects &&  renderProjects.map((project, i) => (
-                        <CardComponent key={i} renderProjects={project} /> 
+                        <CardComponent renderProjects={project} key={i} /> 
                     ))}
                 </Slider>
             </div>
