@@ -19,7 +19,7 @@ export const frontEndProjects = [
         name: 'Star Wars - Planet Search',
         description: 'Projeto Front-End, em que o desafio foi fazer um site de pesquisas, baseado no universo fictício de Star Wars.',
         stacks: ['react', 'css', 'bootstrap', 'context-api'],
-        linkProject: 'https://starwars-planet-search2.onrender.com/',
+        linkProject: 'https://starwars-planet-search.onrender.com',
         linkRepositorie: 'https://github.com/AlectorAlexander/project-starwars-planets-search',
         gif: 'https://github.com/AlectorAlexander/project-starwars-planets-search/raw/main/apr.gif'
     },
