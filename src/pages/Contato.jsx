@@ -11,7 +11,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
     const [mensagem, setMensagem] = useState('');
 
     const animationControl = componentRef === 'Contatos' && visible;
-    const classN = animationControl ? 'animate__animated animate__swing' : '';
+    const classN = animationControl ? 'animate__animated animate__swing' : 'animate__animated animate__fadeOutRightBig';
 
     const handleSubmit = (event) => {
         event.preventDefault();
