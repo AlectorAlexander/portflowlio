@@ -41,7 +41,7 @@ export const backendProjects = [
         stacks: ['node.js', 'typescript', 'mongodb', 'mongoose', 'jwt', 'joi', 'express'],
         linkProject: 'https://discopedia-back.onrender.com',
         linkRepositorie: 'https://github.com/AlectorAlexander/discopedia',
-        gif: ''
+        gif: 'https://media2.giphy.com/media/l41Yh18f5TbiWHE0o/giphy.gif'
     },
     {
         name: 'Trybe Futebol Clube',
@@ -49,7 +49,7 @@ export const backendProjects = [
         stacks: ['node.js', 'mysql', 'docker', 'jwt', 'express', 'typescript', 'sequelize' , 'chai' , 'joi', 'bcrypt', 'sinon'],
         linkProject: '',
         linkRepositorie: 'https://github.com/AlectorAlexander/Trybe-Futebol-Clube',
-        gif: ''
+        gif: 'https://64.media.tumblr.com/e91df322cee5071ec8d277b15f1e48c2/tumblr_nnwj90IhQ01uuikpho1_400.gifv'
 
     },
     {
@@ -58,6 +58,6 @@ export const backendProjects = [
         stacks: ['node.js', 'mongodb', 'jwt', 'express', 'typescript' , 'chai' , 'zod', 'bcrypt', 'sinon'],
         linkProject: '',
         linkRepositorie: 'https://github.com/AlectorAlexander/Trybe-Futebol-Clube',
-        gif: ''
+        gif: 'https://i.gifer.com/okX.gif'
     },
 ];

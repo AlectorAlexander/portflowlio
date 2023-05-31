@@ -9,6 +9,7 @@
 
   .gif {
     max-width: 550px;
+    max-height: 200px;
   }
 
   .list-group li {
