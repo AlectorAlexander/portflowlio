@@ -44,6 +44,14 @@ export const backendProjects = [
         gif: 'https://media2.giphy.com/media/l41Yh18f5TbiWHE0o/giphy.gif'
     },
     {
+        name: 'SpaceX API',
+        description: 'Essa API permite que os desenvolvedores acessem dados atualizados sobre as atividades da SpaceX e os utilizem em suas próprias aplicações.',
+        stacks: ['nest.js', 'typescript', 'mysql', 'jest', 'typeorm'],
+        linkProject: 'spacex-api-nyvm.onrender.com/',
+        linkRepositorie: 'https://github.com/AlectorAlexander/SpaceX',
+        gif: 'https://media.tenor.com/ng-GgZ_KarIAAAAd/space-rocket.gif'
+    },
+    {
         name: 'Trybe Futebol Clube',
         description: 'Projeto Fullstack em que tive que desenvolver uma API que alimenta um site informativo sobre partidas e classificações de futebol.',
         stacks: ['node.js', 'mysql', 'docker', 'jwt', 'express', 'typescript', 'sequelize' , 'chai' , 'joi', 'bcrypt', 'sinon'],

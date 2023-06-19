@@ -18,23 +18,26 @@ function App() {
     const [headerShow, setHeaderShow] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
+        const Scroll = () => {
             const position = window.pageYOffset;
             setScrollPosition(position);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', Scroll);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', Scroll);
         };
     }, []);
 
     const handleScroll = () => {
         if (scrollToComponent.current) {
-            scrollToComponent.current.scrollIntoView({ behavior: 'smooth' });
+            const element = scrollToComponent.current;
+            const scrollPosition = element.offsetTop + (element.offsetHeight * 0.1);
+            window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
         }
     };
+    
 
     const HomeRef = useRef(null);
     const projectBannerRef = useRef(null);
@@ -55,6 +58,7 @@ function App() {
             case 'Contatos':
                 contatoRef.current.scrollIntoView({ behavior: 'smooth' });
                 setComponent('');
+                handleScroll();
                 break;
             default:
                 break;
