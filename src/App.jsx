@@ -58,7 +58,6 @@ function App() {
             case 'Contatos':
                 contatoRef.current.scrollIntoView({ behavior: 'smooth' });
                 setComponent('');
-                handleScroll();
                 break;
             default:
                 break;
@@ -133,7 +132,7 @@ function App() {
                     <Suspense fallback={<div>Loading...</div>}>
                         <Contato  id="contato" componentRef={Ref} visible={myElementIsVisible} forwardedRef={contatoRef} />
                     </Suspense>
-                    <Footer forwardedRef={contatoRef} />
+                    <Footer />
 
                 </section></div>)}
         </div>
