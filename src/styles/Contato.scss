@@ -34,9 +34,11 @@ $text-color3: #12565bdf;
   .form {
     margin: 1rem;
     margin-top: 2rem;
-    height: 70vh;
+    height: 72vh;
     margin-top: 20vh;
-    margin-bottom: 20vh;
+    margin-bottom: 21vh;
+    display: flex;
+    flex-direction: column;
   }
   
   .button {
@@ -45,6 +47,7 @@ $text-color3: #12565bdf;
     margin-left: auto;
     margin-right: auto; 
     display: block;
+    z-index: 33;
     max-width: 90px;
   }
 

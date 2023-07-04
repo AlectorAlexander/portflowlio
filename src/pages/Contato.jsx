@@ -51,7 +51,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
                     className='d-flex w-100'
                 >
                     <TextField
-                        className='my-1 mx-1 w-100'
+                        className='mx-1 w-100'
                         required
                         color="success"
                         id="nome"
@@ -61,7 +61,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
                         onChange={(event) => setNome(event.target.value)}
                     />
                     <TextField
-                        className='my-1 mx-1 w-100'
+                        className='mx-1 w-100'
                         required
                         color="success"
                         id="email"
@@ -72,7 +72,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
                     />
                 </div>
                 <TextField
-                    className='my-1 w-100'  
+                    className='w-100'  
                     required
                     color="success"
                     id="assunto"
@@ -83,7 +83,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
                 />
                 
                 <TextField
-                    className='my-1 w-100'
+                    className='w-100'
                     required
                     id="mensagem"
                     color="success"
@@ -99,7 +99,7 @@ const Contato = React.forwardRef(({forwardedRef, componentRef, visible}) => {
                     variant="outlined"
                     color="success"
                     type="submit"
-                    className='my-1 button'
+                    className='button'
                 >
         Enviar
                 </Button>
