@@ -1,5 +1,13 @@
 export const frontEndProjects = [
     {
+        name: 'Ariana Terapias',
+        description: 'Projeto FullStack/Freelancer onde foi me requisitado um site de terapias holísticas onde os clientes pudessem agendar e pagar por consultas.',
+        stacks: ['next.js', 'nest.js', 'MongoDB', 'stripe', 'google cloud', 'firebase', 'bootstrap', 'context-api', 'axios-react'],
+        linkProject: 'https://terapeutaariana.com.br/',
+        linkRepositorie: '',
+        gif: 'https://github.com/AlectorAlexander/Terapeuta-Ariana/raw/main/ArianaTerapias.gif'
+    },
+    {
         name: 'Discopédia',
         description: 'Projeto FullStack onde o objetivo foi criar uma enciclopédia de discos e deixar o usuário colecionar culturar brasileira.',
         stacks: ['react', 'redux', 'css', 'bootstrap', 'context-api', 'axios-react'],
