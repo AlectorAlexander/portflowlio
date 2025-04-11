@@ -70,7 +70,7 @@ const Home = React.forwardRef(({setHeaderShow, forwardedRef}) => {
                 {showThirdAnimation && <TypeAnimation
                     sequence={[
                         'Sou calmo e simpático. Gosto de canela...          ',
-                        'Gosto de me desafiar, aprender, colocar em prática idéias inovadoras e agregar valor por onde passo. Sei trabalhar em equipe, entendo de metodologias ágeis, feedbacks construtivos, auto-liderança e a importância de uma comunicação assertiva e clara. Pensando em longo prazo, meu objetivo é me especializar cada vez mais na área de tecnologia e me tornar um programador formidável aos olhos do mercado e, por conseguinte, aos meus próprios olhos.',
+                        'Gosto de provocar limites, sugar lições do caos, moldar loucuras em ato e largar faíscas vívidas onde meus passos queimam. Sei dançar em equipe, navego por métodos ágeis, engulo farpas como bela joia, e cultivo a lei vip da autoliderança com fala limpa e propósito firme. No horizonte que rabisco quero mergulhar cada vez mais fundo na tecnologia e ressurgir como um programador notável — bajulado pelo mercado, mas acima de tudo, aprovado pelo espelho.',
                         0,
                     ]}
                     wrapper="span"
