@@ -11,7 +11,8 @@ function Header({Ref, setComponent}) {
         <Navbar className={`header mt-0 animate__animated  animate__flipInX ${Ref}`} expand="lg">
             <Navbar.Brand className='mx-2' href="#home">Dev</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse className="justify-content-end mx-5">
+            <Navbar.Collapse className=" justify-content-end mx-5"
+            >
                 <Nav>
                     <Nav.Link className='navbar-light' onClick={() => setComponent('home')} href="#home"><span>Sobre</span> <span>Mim</span></Nav.Link>
                     <Nav.Link onClick={() => setComponent('ProjectBanner')} href="#projects"><span>Projetos</span></Nav.Link>
