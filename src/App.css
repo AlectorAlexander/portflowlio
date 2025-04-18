@@ -20,8 +20,9 @@
 
 @media screen and (max-width: 600px) {
   #root {
-    min-height: 40vw;
-    width: auto;
+    min-height: 60vw;
+    width: 100vw;
+    height: auto;
     margin: 0;
     padding: 0;
   }
@@ -29,10 +30,12 @@
 
 ::-webkit-scrollbar {
   width: 8px;
-  background-color: #f5f5f500;
+    height: 100vh !important;
+    background-color: #f5f5f500;
 }
 
 ::-webkit-scrollbar-thumb {
+  height: 100vh !important;
   background-color: #000000;
   border-radius: 10px;
 }

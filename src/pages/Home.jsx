@@ -55,7 +55,7 @@ const Home = React.forwardRef(({setHeaderShow, forwardedRef}) => {
                         'Um Desenvolvedor Back-End',
                         2000, 
                         'Um Desenvolvedor Fullstack (por enquanto) Jr  ',
-                        'Um Desenvolvedor Fullstack Jr.',
+                        'Um Desenvolvedor Fullstack',
                         2500, 
                         () => setShowThirdAnimation(true)
                     ]}
